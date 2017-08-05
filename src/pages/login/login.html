@@ -1,17 +1,26 @@
-<ion-content padding>
-  <h2>Please, Login</h2>
-  <form (submit)="doLogin()">
-    <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input [(ngModel)]="loginData.email" name="email" type="text" ></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input [(ngModel)]="loginData.password" name="password" type="password"></ion-input>
-    </ion-item>
-    <button ion-button block type="submit">
-      Login
-    </button>
-  </form>
+
+<ion-content class="background">
+	<ion-card>
+			<ion-card-header>Login Form</ion-card-header>
+			<ion-card-content>
+				
+				<ion-list no-line>
+                   <form (submit)="doLogin()">
+						<ion-item>
+							<ion-input [(ngModel)]="loginData.email" name="email" type="text" placeholder="Email"></ion-input>
+						</ion-item>
+						<ion-item>
+							<ion-input [(ngModel)]="loginData.password" name="password" type="password" placeholder="Password"></ion-input>
+						</ion-item>
+						<button ion-button block outline color="black"  type="submit">Login</button>
+					</form>
+					<p>OR</p>
+					<button ion-button block color="facebook">
+						 Login with SSO
+					</button>
+				</ion-list>
+
+			</ion-card-content>
+	</ion-card>
 
 </ion-content>
