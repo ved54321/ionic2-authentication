@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
-let apiUrl = 'https://union1.unioncloud.org/api/';
+let apiUrl = 'https://jsonplaceholder.typicode.com/';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -37,5 +37,10 @@ export class AuthServiceProvider {
           });
     });
   }
+
+  getstudentvoice(){
+		return this.http.get(apiUrl+ 'posts')
+    	.map(res => res.json());
+  }  
 
 }

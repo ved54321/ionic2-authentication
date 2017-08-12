@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({
   selector: 'page-list',
@@ -8,9 +9,13 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ListPage {
   selectedItem: any;
   icons: string[];
+  studentvoices: studentvoice[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService: AuthServiceProvider) {
+     this.authService.getstudentvoice().subscribe(studentvoices =>{
+            this.studentvoices = studentvoices;
+    });
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -34,4 +39,12 @@ export class ListPage {
       item: item
     });
   }
+
+}
+
+interface studentvoice{
+  user_id: number;
+  title: string;
+  body: string;
+  id: number;
 }

@@ -3,21 +3,43 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Student Voice</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+  <ion-card *ngFor="let studentvoice of studentvoices">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/user_avtar.png">
+      </ion-avatar>
+      <h2>Ved Singh</h2>
+      <p>November 5, 1955</p>
+    </ion-item>
+    <img src="../../assets/studentvoice_newlogo.png">
+    <ion-card-content>
+      <ion-card-title>
+        {{studentvoice.title}}
+      </ion-card-title>
+      <p>{{studentvoice.body}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
