@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
+import { FormPage } from '../pages/form/form';
 import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,7 +18,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    FormPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    FormPage
   ],
   providers: [  
     StatusBar,

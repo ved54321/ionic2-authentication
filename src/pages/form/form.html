@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create student voice</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <form (ngSubmit)="logForm()">
+      <ion-list>
+		  <ion-item>
+		    <ion-label floating>Name</ion-label>
+		    <ion-input type="text"></ion-input>
+		  </ion-item>
+		  <ion-item>
+		    <ion-label floating>Description</ion-label>
+		    <ion-input type="text"></ion-input>
+		  </ion-item>
+	</ion-list>
+      <button ion-button type="submit" block>Add Todo</button>
+    </form>
+</ion-content>

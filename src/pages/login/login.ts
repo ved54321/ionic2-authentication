@@ -2,15 +2,19 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController, ToastController,MenuController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { HomePage } from '../../pages/home/home';
+import sha256 from 'crypto-js/sha256';
+
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
 export class LoginPage {
+  hash_data = String;
+  hash = {item1: 1}
 
   loading: any;
-  loginData = { email:'', password:'',app_id: 'ganesh',date_stamp: '1433203820',hash: '74067c0677004cf719beb41c3ac7f7de98b09191558173152be0512451a500a2' };
+  loginData = { email:'', password:'',app_id: 'ganesh',date_stamp: '1433203820',app_password: 'admin@123'};
   data: any;
 
   constructor(public menu: MenuController,public navCtrl: NavController, public authService: AuthServiceProvider, public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
@@ -18,6 +22,7 @@ export class LoginPage {
   }
 
   doLogin() {
+   this.loginData['hash'] = sha256(this.loginData);   
     this.showLoader();
     this.authService.login(this.loginData).then((result) => {
       this.loading.dismiss();

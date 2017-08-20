@@ -5,9 +5,12 @@
     </button>
     <ion-title>Student Voice</ion-title>
   </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <button ion-button round block (click)= "new_idea()">Post New Ideas</button>
 </ion-header>
+
 <ion-content>
-  <ion-card *ngFor="let studentvoice of studentvoices">
+  <ion-card *ngFor="let studentvoice of studentvoices"> 
     <ion-item>
       <ion-avatar item-start>
         <img src="../../assets/user_avtar.png">
